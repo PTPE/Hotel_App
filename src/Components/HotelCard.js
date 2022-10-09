@@ -16,6 +16,7 @@ const HotelCard = (props) => {
         <div className={classes.description}>
           {props.passData.description.length > 120 &&
             props.passData.description.substring(0, 113).padEnd(116, ".")}
+          {/* {props.passData.description} */}
         </div>
         <div className={classes.rate}>
           <div className={classes.rate_des}>{props.passData.rateDes}</div>

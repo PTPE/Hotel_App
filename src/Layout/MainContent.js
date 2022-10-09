@@ -8,7 +8,7 @@ const MainContant = (props) => {
       <div className={classes.custom_filter}>
         <CustomFilter passAscending={props.passAscending} />
       </div>
-      <HotelList passData={props.passData} onSetFilter={props.onSetFilter} />
+      <HotelList passData={props.passData} />
     </div>
   );
 };

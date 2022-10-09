@@ -54,7 +54,6 @@ const SearchFilter = (props) => {
                 type="checkbox"
                 value={item}
                 onClick={(event) => {
-                  // filterHandler(event);
                   clickedHandler(event.target.checked, i);
                 }}
               ></input>

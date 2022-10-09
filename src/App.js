@@ -89,21 +89,16 @@ function App(props) {
 
   useEffect(() => {
     //filter
-    let filteredChoice = [];
 
-    const testFilter = () => {
-      return data.map((hotel) =>
+    const filterDataHandler = () => {
+      return data.filter((hotel) =>
         searchChoice.every((filter_data) =>
           hotel.service.some((service) => service === filter_data)
         )
       );
     };
 
-    for (let i = 0; i < 5; i++) {
-      testFilter()[i] && filteredChoice.push(data[i]);
-    }
-
-    setFilteredData(filteredChoice);
+    setFilteredData(filterDataHandler());
   }, [clicked]);
 
   useEffect(() => {
