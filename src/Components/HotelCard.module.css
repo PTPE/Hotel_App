@@ -1,0 +1,79 @@
+.hotel_card {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  margin-bottom: 30px;
+  border: 1px solid #d7dce3;
+}
+
+.context {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.hotel_img {
+  width: 245px;
+  height: 170px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a2b50;
+}
+
+.map_marker {
+  width: 14px;
+}
+
+.location {
+  font-size: 14px;
+  color: #e60013;
+}
+
+.description {
+  font-size: 14px;
+  width: 390px;
+}
+
+.rate_num {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e60013;
+  color: white;
+  border-radius: 3px;
+  margin-left: 10px;
+}
+
+.rate {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  height: 35px;
+}
+
+.rate_des {
+  font-weight: 500;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 500;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+.price_des {
+  font-size: 12px;
+  color: #5e6d77;
+  margin-left: 5px;
+}

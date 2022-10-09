@@ -1,0 +1,11 @@
+/* .custom_filter {
+  font-size: 50px;
+} */
+
+.custom_choice {
+  height: 30px;
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  border: 1px solid #d7dce3;
+}

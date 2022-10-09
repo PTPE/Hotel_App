@@ -1,0 +1,10 @@
+.main_content {
+  width: 900px;
+  position: relative;
+}
+
+.custom_filter {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
