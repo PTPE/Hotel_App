@@ -63,7 +63,7 @@ const data = [
 
 function App(props) {
   const [custom, setCustom] = useState("為您精選");
-  const [filterData, setFilter] = useState([]);
+  const [searchChoice, setSearchChoice] = useState([]);
   const [filteredData, setFilteredData] = useState(data);
   const [sortedData, setSortedData] = useState(filteredData);
   const [clicked, setClicled] = useState([
@@ -79,8 +79,8 @@ function App(props) {
     setClicled(click);
   };
 
-  const SetFilterHandler = (filter) => {
-    setFilter(filter);
+  const SetFilterChoiceHandler = (filter) => {
+    setSearchChoice(filter);
   };
 
   const sortPrice = (custom) => {
@@ -91,45 +91,35 @@ function App(props) {
     //filter
     let filteredChoice = [];
 
-    const hotel1 = filterData.every((filter_data) =>
-      data[0].service.some((service) => service === filter_data)
-    );
-
-    const hotel2 = filterData.every((filter_data) =>
-      data[1].service.some((service) => service === filter_data)
-    );
-
-    const hotel3 = filterData.every((filter_data) =>
-      data[2].service.some((service) => service === filter_data)
-    );
-
-    const hotel4 = filterData.every((filter_data) =>
-      data[3].service.some((service) => service === filter_data)
-    );
-
-    const hotel5 = filterData.every((filter_data) =>
-      data[4].service.some((service) => service === filter_data)
-    );
-
-    const filteredState = [hotel1, hotel2, hotel3, hotel4, hotel5];
+    const testFilter = () => {
+      return data.map((hotel) =>
+        searchChoice.every((filter_data) =>
+          hotel.service.some((service) => service === filter_data)
+        )
+      );
+    };
 
     for (let i = 0; i < 5; i++) {
-      filteredState[i] && filteredChoice.push(data[i]);
+      testFilter()[i] && filteredChoice.push(data[i]);
     }
+
     setFilteredData(filteredChoice);
   }, [clicked]);
 
   useEffect(() => {
+    //sort
     const priceAscending = [...filteredData].sort(
       (a, b) =>
         a.price.substring(4, a.price.length - 1).replaceAll(",", "") -
         b.price.substring(4, b.price.length - 1).replaceAll(",", "")
     );
+
     const priceDescending = [...filteredData].sort(
       (a, b) =>
         b.price.substring(4, a.price.length - 1).replaceAll(",", "") -
         a.price.substring(4, b.price.length - 1).replaceAll(",", "")
     );
+
     const rateSort = filteredData.filter((hotel) => hotel.rateNum >= 4.5);
     custom === "為您精選" && setSortedData(filteredData);
     custom === "價錢由低至高" && setSortedData(priceAscending);
@@ -140,7 +130,7 @@ function App(props) {
   return (
     <div className={classes.app}>
       <SideBar
-        onSetFilter={SetFilterHandler}
+        onSetFilterChoice={SetFilterChoiceHandler}
         passClicked={passClickedHandler}
       />
       <MainContant passData={sortedData} passAscending={sortPrice} />

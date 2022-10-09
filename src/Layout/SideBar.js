@@ -5,7 +5,7 @@ const SideBar = (props) => {
   return (
     <div className={classes.side_bar}>
       <SearchFilter
-        onSetFilter={props.onSetFilter}
+        onSetFilterChoice={props.onSetFilterChoice}
         passClicked={props.passClicked}
       />
     </div>

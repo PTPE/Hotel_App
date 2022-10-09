@@ -28,8 +28,7 @@ const SearchFilter = (props) => {
     let chosen = [];
     for (let i = 0; i < choice.length; i++) {
       clicked[i] && chosen.push(choice[i]);
-      // console.log(chosen);
-      props.onSetFilter(chosen);
+      props.onSetFilterChoice(chosen);
     }
     props.passClicked(clicked);
   }, [clicked]);
